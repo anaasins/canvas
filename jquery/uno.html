@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript">
+    //$(elemento).ready --> Para que algo se ejecute cuando el elemento ya se ha cargado (como onload)
+    $(document).ready(function(){
+      console.log("hola");
+    })
+    //si es para el documetn no hace falta poner el ready
+    $(function(){
+      console.log("hola");
+    })
+
+    //otra forma de hacer lo mismo por si la funcion es muy larga
+    function readyFunction() {
+      console.log('hola');
+    }
+    $(document).ready(readyFunction);
+
+    //acceder a los elementos ($('li')). Cambiarle el html o el css
+    function liFunction() {
+      $('li').html('Nuevo Contenido');
+      $('li').css({
+        'fontSize': '20px',
+        'color': 'green'
+      });
+    }
+    $(document).ready(liFunction);
+
+    </script>
+  </head>
+  <body>
+    <ul>
+      <li>Primer elemento</li>
+      <li>Segundo elemento</li>
+      <li>Tercer elemento</li>
+    </ul>
+  </body>
+</html>

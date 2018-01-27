@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    </style>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript">
+    //añadir una nueva funcion a jquery
+      jQuery.fn.comprueba = function() {
+        //sacar el elemento en el que estamos (el input)
+        var elem = $(this);
+        mensaje = $('<span>contraseña no segura </span>');
+        elem.after(mensaje);
+
+        elem.keyup(function() {
+          var elem = $(this);
+          var pwdActual = elem.val();
+          if (pwdActual.length < 5) {
+            mostrar = 'Contraseña no segura';
+          }else if (pwdActual.length < 10) {
+            mostrar = 'Contraseña medianamente segura';
+          }else {
+            mostrar = 'Contraseña segura';
+          }
+
+          mensaje.html(mostrar);
+        });
+      }
+
+      $(document).ready(function() {
+        $('#pwd').comprueba();
+      });
+    </script>
+  </head>
+  <body>
+    <form class="" action="index.html" method="post">
+      <input type="password" name="pwd" id="pwd" placeholder="Contraseña">
+    </form>
+  </body>
+</html>

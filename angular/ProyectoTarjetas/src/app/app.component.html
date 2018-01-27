@@ -1,0 +1,62 @@
+
+<p Titulo>Tarjeta de usuario</p>
+<!--The content below is only a placeholder and can be replaced.-->
+<form  [ngClass]="{uno:varVisible==0, dos:varVisible==1}">
+  <label for="nombre" Label>Nombre</label>
+  <input type="text" id="nombre" name="nombre" placeholder="Nombre" (keyup)="actualizar($event);">
+  <label for="profesion" Label>Profesion</label>
+  <input type="text" id="profesion" name="profesion" placeholder="Profesion" (keyup)="actualizar($event);">
+  <label for="telefono" Label>Telefono</label>
+  <input type="text" id="telefono" name="telefono" placeholder="Telefono" (keyup)="actualizar($event);">
+  <label for="correo" Label>Correo electronico</label>
+  <input type="text" id="correo" name="correo" placeholder="Correo" (keyup)="actualizar($event);">
+  <label for="direccion" Label>Dirección</label>
+  <input type="text" id="direccion" name="direccion" placeholder="Direccion" (keyup)="actualizar($event);">
+  <label for="nacimiento" Label>Año de nacimiento</label>
+    <select id="nacimiento" name="nacimiento" (click)="actualizar($event);">
+    <option id="nacimiento" *ngFor="let fecha of nacimiento" value="{{fecha}}">{{fecha}}</option>
+  </select>
+</form>
+<button type="button" name="button" id="boton" (click) = "visibilidad();" MiEvento>OCULTAR FORMULARIO</button>
+<hr  [ngClass]="{uno:varVisible==0, dos:varVisible==1}">
+
+<div class="cards">
+<!-- Front side of card -->
+<div class="card">
+  <div class="front">
+    <div class="side"></div>
+    <div class="center">
+      <div class="logo">
+        <div class="logo-icon">
+          <i class="fa fa-cubes fa-2x"></i>
+        </div>
+        <h1 class="title">{{nombre}}</h1>
+        <h3 class="subtitle">{{profesion}}</h3>
+      </div>
+    </div>
+    <div class="side"></div>
+  </div>
+</div>
+<!-- Back side of card -->
+<div class="card">
+  <div class="back">
+    <div class="left-box">
+      <div class="logo2">
+        <img src="./assets/imagen.jpg" alt="">
+
+      </div>
+    </div>
+    <div class="right-box">
+      <h1 class="title">{{nombre}}</h1>
+      <h3 class="subtitle">{{profesion}}</h3>
+      <hr>
+      <ul>
+        <li><i class="fa fa-birthday-cake"></i>{{fechaFinal}}</li>
+        <li><i class="fa fa-mobile"></i>{{telefono}}</li>
+        <li><i class="fa fa-envelope"></i>{{correo}}</li>
+        <li><i class="fa fa-map-marker"></i>{{direccion}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>

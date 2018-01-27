@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      #contenedor{
+        width: 100px;
+        height: 100px;
+        background-color: darkgrey;
+        border: 4px solid black;
+        position: relative;
+      }
+    </style>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript">
+    //crear una animacion acepta 3 parametros
+    //1. prpiedades que quieres cambiar
+    //2. tiempo de duracion
+    //3. lo que quieres que haga la final
+      $(document).ready(function() {
+        $('#contenedor').animate(
+          //1
+          {
+            left : '+=500',
+            opacity: 0
+          },
+          //2
+          1000,
+          //3
+          function() {
+            console.log('FIN');
+          }
+        );
+      });
+    </script>
+  </head>
+  <body>
+    <div id="contenedor"></div>
+  </body>
+</html>

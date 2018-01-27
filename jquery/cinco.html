@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      #contenedor{
+        width: 100px;
+        height: 100px;
+        background-color: darkgrey;
+        border: 4px solid black;
+        position: relative;
+      }
+    </style>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        //ocultar un elemento en medio segundo despues de 1 segundo
+        $('h1').delay(1000).hide(500);
+        //lo mismo pero mostrarlo
+        $('h1').delay(1000).show(500);
+      });
+    </script>
+  </head>
+  <body>
+    <h1>TÍITULO</h1>
+    <div id="contenedor"></div>
+  </body>
+</html>

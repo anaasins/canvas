@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      function setup() {
+        if (canvas.getContext) {
+          //si lo tiene sacar el contexto 2d
+          var contexto= canvas.getContext('2d');
+          //accedemos al contexto para dibujar
+          //stroke dibuja el contorno
+          contexto.strokeRect(0, 0, 800, 600);
+
+          //dibujamos cuadrados y
+          contexto.fillRect(50, 300, 50, 50);
+          //giardar el estado del contexto
+          contexto.save();
+              //trasladar en el canvas
+              contexto.translate(0, 50);
+              contexto.fillRect(200, 300, 50, 50);
+
+              contexto.save();
+                //rotar
+                contexto.rotate(0.2);
+                //escalar
+                contexto.scale(0.5, 0.7);
+                contexto.fillRect(350, 300, 50, 50);
+              contexto.restore();
+
+              contexto.fillRect(500, 300, 50, 50);
+          //devolver el contexto al original para q solo se mueva el segundo
+          contexto.restore();
+          contexto.fillRect(650, 300, 50, 50);
+        }
+      }
+    </script>
+  </head>
+  <body onload="setup();">
+    <canvas id="canvas" width="800" height="600"></canvas>
+  </body>
+</html>

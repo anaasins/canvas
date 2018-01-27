@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      function setup() {
+        var canvas= document.getElementById('canvas');
+        //comprobamos si tiene contexto (zona de dibujado)
+        if (canvas.getContext) {
+          //si lo tiene sacar el contexto 2d
+          var contexto= canvas.getContext('2d');
+          //accedemos al contexto para dibujar
+          //CAMBIAR EL COLOR ACTIVO
+            //contexto.fillStyle='red';
+          //color con gradiente
+          var gradiente = contexto.createLinearGradient(0, 0, 200, 0);
+            gradiente.addColorStop(0, 'black');
+            gradiente.addColorStop(0.75, 'green');
+            gradiente.addColorStop(1, 'orange');
+            contexto.fillStyle= gradiente;
+          //stroke dibuja el contorno
+          contexto.strokeRect(0, 0, 300, 300);
+          //fill dibuja el contorno y lo rellena
+          contexto.fillRect(50, 50, 200, 200);
+          //DIBUJAR UNA LINEA
+          //nos vamos a la posicion donde queremos que empiece la linea
+          contexto.moveTo(50, 50);
+          //la llevamos hasta donde queremos que acabe
+          contexto.lineTo(250, 250);
+          //dibujamos la linea que hemos creado
+          contexto.stroke();
+        }
+      }
+    </script>
+  </head>
+  <body onload="setup();">
+    <canvas id="canvas" width="300" height="300"></canvas>
+  </body>
+</html>

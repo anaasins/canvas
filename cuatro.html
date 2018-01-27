@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      function setup() {
+        if (canvas.getContext) {
+          //si lo tiene sacar el contexto 2d
+          var contexto= canvas.getContext('2d');
+          //accedemos al contexto para dibujar
+          //stroke dibuja el contorno
+          contexto.strokeRect(0, 0, 700, 600);
+
+          //añadir la imagen de fondo
+          var imagen = new Image();
+          //decri que imagen es
+          imagen.src = 'descarga.jpg';
+          //una vez cargada, la dibujamos
+          imagen.onload= function() {
+            //hay que pasarle como minimo la imagen i la posicion
+            contexto.drawImage(imagen, 0, 0, 700, 600);
+            contexto.save()
+              contexto.rotate(0.1);
+              contexto.drawImage(imagen,  20, 20, 50, 50, 10, 400, 100, 100);
+            contexto.restore();
+            contexto.drawImage(imagen,  80, 80, 200, 200, 100, 80, 200, 80);
+          }
+        }
+      }
+    </script>
+  </head>
+  <body onload="setup();">
+    <canvas id="canvas" width="700" height="600"></canvas>
+  </body>
+</html>

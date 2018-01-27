@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      function setup() {
+        if (canvas.getContext) {
+          //si lo tiene sacar el contexto 2d
+          var contexto= canvas.getContext('2d');
+          //accedemos al contexto para dibujar
+          //stroke dibuja el contorno
+          contexto.strokeRect(0, 0, 600, 600);
+          //IMAGENES
+          //crear el objeto
+          var imagen = new Image();
+          //decri que imagen es
+          imagen.src = 'nave.png';
+          //una vez cargada, la dibujamos
+          imagen.onload= function() {
+            //hay que pasarle como minimo la imagen i la posicion
+            //(imagen, posicionX, posicionY) O (image, posicionX, posicionY, altura, ancho) O (imagen, cortarImagen, cortarImgen, cortarImagen, cortarImagen, posicionX, posicionY, altura, ancho)
+            contexto.drawImage(imagen, 50, 50, 150, 150, 0, 0, 600, 600);
+          }
+        }
+      }
+    </script>
+  </head>
+  <body onload="setup();">
+    <canvas id="canvas" width="600" height="600"></canvas>
+  </body>
+</html>

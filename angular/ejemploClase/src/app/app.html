@@ -1,0 +1,43 @@
+<style media="screen">
+  .error{
+    background-color: red;
+    color: white;
+  }
+  .active{
+    color: green;
+  }
+  .inactive{
+    color: red;
+  }
+</style>
+
+<div class="">
+  <h1> HOLA MUNDO</h1>
+  <h2 appBigText MiEvento>{{frase}}</h2>
+  <h3>{{valor}}</h3>
+</div>
+
+<div *ngIf="errores>0" class="error">
+  ERRORES: {{errores}}
+</div>
+
+<div [ngClass]="{active:errores==0, inactive:errores>0}">
+  DIV NGCLASS
+</div>
+
+<div [ngSwitch]="errores">
+  <p *ngSwitchCase=0>0 errores</p>
+  <p *ngSwitchCase=1>1 errores</p>
+  <p *ngSwitchCase=2>2 errores</p>
+  <p *ngSwitchDefault>Mas de 2 errores</p>
+</div>
+
+<div *ngFor="let color of colores">
+  <p>ID: {{color.id}}, TONO: {{color.tono}}</p>
+</div>
+
+<div>
+  <button (click)="sumar();">+</button>
+  <p>{{errores}}</p>
+  <button (click)="restar();">-</button>
+</div>
